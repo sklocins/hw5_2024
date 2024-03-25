@@ -1,3 +1,4 @@
+/* keyframe to animate */
 @keyframes logo-move{
   from {width: 25px;
       opacity: 0;}
@@ -5,10 +6,12 @@
     opacity: 1;}
 }
 
+/* do the animation */
 #logo{
   animation:logo-move 5s;
 }
 
+/* for body, change font and background */
 body{
   font-family:'Poppins', serif;
   background-image: url('../images/concrete_seamless.png');
@@ -16,21 +19,25 @@ body{
   background-color: #f1f1f1;
 }
 
+/* put both header items in a centered column */
 header{
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+/* put the nav_links in a column */
 .nav_links{
   display: flex;
   flex-direction: column;
 }
 
+/* keep the links blue even when visited */
 .nav_links a:visited{
   color: blue;
 }
 
+/* set the headers that are in card */
 .card>header{
   background: #288088;
   border: solid 2px #45ADAD;
@@ -40,6 +47,7 @@ header{
   border-top-right-radius: 50px;
 }
 
+/* have the things in card in a 450px flex column */
 .card{
   border-top-left-radius: 50px;
   border-top-right-radius: 50px;
@@ -48,6 +56,7 @@ header{
   flex-basis: 450px;
 }
 
+/* have the cards in a centered flex row wrap */
 .pricing{
   display: flex;
   flex-flow: row wrap;
@@ -55,12 +64,14 @@ header{
   align-content: center;
 }
 
+/* add a nice border and margin to images in gallery, set width */
 .gallery img{
   border: solid 10px #50C7C7;
   margin: 10px;
   width: 300px;
 }
 
+/* have my gallery in a centered flex row wrap */
 .gallery{
   display: flex;
   flex-direction: row;
@@ -68,58 +79,73 @@ header{
   justify-content: center;
 }
 
+/* for screens 900x and up */
 @media (min-width: 900px){
+  /* change the header to be row, and not wrap */
   header{
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
   }
+  /* get the nav links in a flex row, and set to end to 
+  put them to the side */
   .nav_links{
     display: flex;
     justify-content: flex-end;
     flex-direction: row;
   }
+  /* set the initial size of the cards to 275px */
   .card{
     flex-basis: 275px;
   }
+  /* center pricing */
   .pricing{
     align-items: center;
   }
+  /* have only the direct children of body headers be sticky */
   body > header{
     position: sticky;
     top: 0;
   }
 }
+/* turn off our animation for reduced-motion */
 @media screen and (prefers-reduced-motion: reduce){
   #logo{
     animation: none;
   }
 }
-
+/* print styling */
 @media print {
+  /* change font and get rid of background-image */
   body{
     font-family:Arial, Helvetica;
     background-image: none;
   }
+  /* place different border on cards, set size to 325px */
   .card{
     border: solid 2px #45ADDD;
     flex-basis: 325px;
   }
+  /* make sure gallery doesn't show up */
   .gallery, #gallery{
     display: none;
   }
+  /* put the emoji after the second list element in cards */
   .card li:nth-child(2)::after {
     content: "\1F44D";
   }
+  /* have pricing be on bottom in a row */
   .pricing{
     align-items: flex-end;
     flex-flow: row nowrap;
   }
+  /* place nav_links in a row */
   .nav_links{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
   }
+  /* have the nav take up the whole screen */
   nav{
     width: 100%;
   }
